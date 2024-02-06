@@ -1,4 +1,5 @@
 import streamlit as st
+pip install opencv-python
 import cv2
 import numpy as np
 from utils import *
