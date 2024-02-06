@@ -1,5 +1,4 @@
 import streamlit as st
-pip install opencv-python
 import cv2
 import numpy as np
 from utils import *
@@ -9,7 +8,7 @@ from darknet import Darknet
 cfg_file = '../data/cfg/crop_weed.cfg'
 
 # Set the location and name of the pre-trained weights file
-weight_file = '../data/weights/' + 'crop_weed_detection.weights'  # add weights file name here if you have your own
+weight_file = '../data/weights/crop_weed_detection.weights'  # add weights file name here if you have your own
 
 # Set the location and name of the object classes file
 namesfile = '../data/names/obj.names'
@@ -31,7 +30,7 @@ uploaded_image = st.file_uploader("Upload an image", type=["jpg", "jpeg", "png"]
 
 if uploaded_image:
     # Convert uploaded image to OpenCV format
-    image = cv2.imdecode(np.fromstring(uploaded_image.read(), np.uint8), cv2.IMREAD_COLOR)
+    image = cv2.imdecode(np.frombuffer(uploaded_image.read(), np.uint8), cv2.IMREAD_COLOR)
 
     # Display the uploaded image
     st.image(image, caption="Uploaded Image", use_column_width=True)
